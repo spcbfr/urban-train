@@ -1,0 +1,26 @@
+Config { 
+
+    font = "BlexMono Nerd Font Mono Bold 11"
+           , additionalFonts = ["Font Awesome 6"]
+           , bgColor = "#1a1b26"
+           , fgColor = "#c0caf5"
+           , position = TopSize L 100 24
+           , lowerOnStart = True
+           , commands = [
+                 -- Cpu usage in percent
+             Run Cpu ["-t", "cpu: (<total>%)","-H","50","--high","red"] 20
+                 -- Ram used number and percent
+             , Run Memory ["-t", "<used>M (<usedratio>%)"] 20
+                 -- Disk space free
+             , Run DiskU [("/", "<free> free space")] [] 60
+                 -- Uptime
+             , Run Uptime ["-t", "uptime: <days>d <hours>h"] 360
+                 -- Time and date
+             , Run Date "%b %d - (%H:%M)" "date" 50
+             , Run UnsafeXMonadLog
+           ]
+           , sepChar = "%"
+           , alignSep = "}{"
+           , template = " %UnsafeXMonadLog% }{ <box type=Bottom width=2 mb=2 color=#ecbe7b><fc=#ecbe7b><action=`alacritty -e htop`>%cpu%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#ff6c6b><fc=#ff6c6b><action=`alacritty -e htop`>%memory%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#a9a1e1><fc=#a9a1e1>%disku%</fc></box>  <box type=Bottom width=2 mb=2 color=#98be65><fc=#98be65>%uptime%</fc></box>  <box type=Bottom width=2 mb=2 color=#46d9ff><fc=#46d9ff>%date%</fc></box>"
+
+}

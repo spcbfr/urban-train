@@ -5,7 +5,7 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  environment.systemPackages = with pkgs; [ xorg.xmessage xmobar nodejs xdotool wget steam-run];
+  environment.systemPackages = with pkgs; [xorg.xmessage xmobar nodejs xdotool wget steam-run];
   nixpkgs.config.allowUnfree = true;
 
   # Use the systemd-boot EFI boot loader.
